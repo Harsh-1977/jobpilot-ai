@@ -1,0 +1,177 @@
+.register-section{
+
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.register-card{
+
+    width:100%;
+    max-width:500px;
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:16px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.register-header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.register-header h2{
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+
+}
+
+.register-header p{
+
+    color:#64748b;
+
+}
+
+.input-group{
+
+    margin-bottom:20px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #dbe3ef;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+.input-group input:focus{
+
+    border-color:#2563eb;
+
+}
+
+.password-box{
+
+    position:relative;
+
+}
+
+.eye-icon{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#64748b;
+
+}
+
+.register-options{
+
+    margin:20px 0;
+
+}
+
+.register-options label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#475569;
+
+    font-size:15px;
+
+}
+
+.register-submit-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.register-submit-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.login-link{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#64748b;
+
+}
+
+.login-link a{
+
+    margin-left:6px;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
