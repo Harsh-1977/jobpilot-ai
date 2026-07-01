@@ -1,0 +1,41 @@
+.companies{
+    padding:70px 8%;
+    text-align:center;
+    background:#ffffff;
+}
+
+.companies h2{
+    font-size:36px;
+    color:#0f172a;
+    margin-bottom:50px;
+}
+
+.company-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.company-card{
+    padding:25px;
+    border-radius:10px;
+    background:#f8fafc;
+    font-size:22px;
+    font-weight:600;
+    transition:.3s;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.company-card:hover{
+    transform:translateY(-5px);
+    color:#2563eb;
+}
+
+@media(max-width:768px){
+
+.company-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
