@@ -1,3 +1,7 @@
+/* ===========================
+   Navbar
+=========================== */
+
 .navbar {
     width: 100%;
     height: 80px;
@@ -7,23 +11,34 @@
     align-items: center;
     padding: 0 8%;
     box-sizing: border-box;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+/* ===========================
+   Logo
+=========================== */
+
 .logo a {
     text-decoration: none;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
     color: #2563eb;
 }
 
+/* ===========================
+   Navigation Links
+=========================== */
+
 .nav-links {
     display: flex;
-    list-style: none;
+    align-items: center;
     gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
@@ -31,88 +46,172 @@
 }
 
 .nav-links a {
+    position: relative;
     text-decoration: none;
     color: #1e293b;
     font-size: 17px;
     font-weight: 500;
-    transition: 0.3s;
+    transition: color .3s ease;
 }
 
 .nav-links a:hover {
     color: #2563eb;
 }
 
+/* Underline Animation */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #2563eb;
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ===========================
+   Buttons
+=========================== */
 
 .nav-buttons {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 16px;
 }
+
+/* Common Button Style */
 
 .login-btn,
 .register-btn {
+
+    width: 115px;
+    height: 52px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 6px;
+
+    font-size: 17px;
     font-weight: 600;
-    transition: 0.3s;
+
+    border-radius: 10px;
+
+    transition: all .3s ease;
+
+    box-sizing: border-box;
 }
 
+/* Login Button */
+
 .login-btn {
-    border: 2px solid #2563eb;
+
+    background: #ffffff;
     color: #2563eb;
+
+    border: 2px solid #2563eb;
 }
 
 .login-btn:hover {
+
     background: #2563eb;
-    color: white;
+    color: #ffffff;
+
 }
 
+/* Register Button */
+
 .register-btn {
+
     background: #2563eb;
-    color: white;
+    color: #ffffff;
+
+    border: 2px solid #2563eb;
 }
 
 .register-btn:hover {
+
     background: #1d4ed8;
+    border-color: #1d4ed8;
+
 }
 
+/* ===========================
+   Menu Icon
+=========================== */
 
 .menu-icon {
+
     display: none;
-    font-size: 28px;
+
+    font-size: 30px;
+
     cursor: pointer;
+
+    color: #1e293b;
+
 }
 
+/* ===========================
+   Responsive
+=========================== */
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
+
+    .navbar {
+
+        padding: 0 6%;
+
+    }
 
     .menu-icon {
+
         display: block;
+
     }
 
     .nav-buttons {
+
         display: none;
+
     }
 
     .nav-links {
+
         position: absolute;
+
         top: 80px;
         left: -100%;
+
         width: 100%;
-        background: white;
+
+        background: #ffffff;
+
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-        transition: 0.3s;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        align-items: center;
+
+        gap: 25px;
+
+        padding: 30px 0;
+
+        transition: .3s;
+
+        box-shadow: 0 10px 20px rgba(0,0,0,.08);
+
     }
 
     .nav-links.active {
-        left: 0;
-    }
 
-    .nav-links li {
-        margin: 15px 0;
+        left: 0;
+
     }
 
 }
