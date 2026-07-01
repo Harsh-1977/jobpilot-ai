@@ -1,0 +1,84 @@
+.login-benefits{
+    flex:1;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    padding:50px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    box-shadow:0 20px 40px rgba(37,99,235,.25);
+}
+
+.benefit-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    width:max-content;
+    padding:10px 18px;
+    background:rgba(255,255,255,.15);
+    border-radius:30px;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.benefit-badge svg{
+    color:#FFD54F;
+}
+
+.login-benefits h2{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.login-benefits p{
+    line-height:1.8;
+    font-size:17px;
+    opacity:.95;
+    margin-bottom:35px;
+}
+
+.benefit-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.benefit-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-size:18px;
+    font-weight:500;
+}
+
+.benefit-item svg{
+    color:#FFD54F;
+    font-size:20px;
+}
+
+.benefit-footer{
+    margin-top:45px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.25);
+}
+
+.benefit-footer h3{
+    font-size:40px;
+    color:#FFD54F;
+    margin-bottom:8px;
+}
+
+.benefit-footer p{
+    margin:0;
+    opacity:.9;
+    font-size:15px;
+}
+
+@media(max-width:992px){
+
+.login-benefits{
+    display:none;
+}
+
+}
