@@ -1,0 +1,86 @@
+.cta-section{
+    padding:90px 20px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.cta-container{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:white;
+}
+
+.cta-badge{
+    display:inline-block;
+    padding:10px 22px;
+    background:rgba(255,255,255,.15);
+    border-radius:30px;
+    font-size:15px;
+    margin-bottom:25px;
+}
+
+.cta-container h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.cta-container h2 span{
+    color:#FFD54F;
+}
+
+.cta-container p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    font-size:18px;
+    opacity:.95;
+}
+
+.cta-buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    background:white;
+    color:#2563eb;
+    padding:15px 35px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    border:2px solid white;
+    color:white;
+    padding:15px 35px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+    background:white;
+    color:#2563eb;
+}
+
+@media(max-width:768px){
+
+.cta-container h2{
+    font-size:34px;
+}
+
+.cta-container p{
+    font-size:16px;
+}
+
+}
