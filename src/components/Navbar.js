@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../styles/Navbar.css";
 
 function Navbar() {
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loggedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(loggedUser);
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -14,7 +23,18 @@ function Navbar() {
     setMenuOpen(false);
   };
 
+  const handleLogout = () => {
+
+    localStorage.removeItem("user");
+
+    setUser(null);
+
+    navigate("/");
+
+  };
+
   return (
+
     <nav className="navbar">
 
       {/* Logo */}
@@ -29,10 +49,6 @@ function Navbar() {
           <Link to="/" onClick={closeMenu}>Home</Link>
         </li>
 
-        {/* <li>
-          <Link to="/features" onClick={closeMenu}>Features</Link>
-        </li> */}
-
         <li>
           <Link to="/about" onClick={closeMenu}>About</Link>
         </li>
@@ -46,22 +62,45 @@ function Navbar() {
       {/* Buttons */}
       <div className="nav-buttons">
 
-        <Link to="/login" className="login-btn">
-          Login
-        </Link>
+        {user ? (
 
-        <Link to="/register" className="register-btn">
+          <button
+            className="login-btn"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+
+        ) : (
+
+          <Link
+            to="/login"
+            className="login-btn"
+          >
+            Login
+          </Link>
+
+        )}
+
+        <Link
+          to="/register"
+          className="register-btn"
+        >
           Register
         </Link>
 
       </div>
 
-      {/* Mobile Menu Icon */}
-      <div className="menu-icon" onClick={toggleMenu}>
+      {/* Mobile Menu */}
+      <div
+        className="menu-icon"
+        onClick={toggleMenu}
+      >
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
     </nav>
+
   );
 }
 

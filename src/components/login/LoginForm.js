@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../styles/LoginForm.css";
 import API from "../../api/authApi";
 
 function LoginForm() {
-
+  
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -53,10 +55,7 @@ function LoginForm() {
       // Remember Me
       if (formData.remember) {
 
-        localStorage.setItem(
-          "rememberEmail",
-          formData.email
-        );
+        localStorage.setItem("rememberEmail", formData.email);
 
       } else {
 
@@ -64,9 +63,16 @@ function LoginForm() {
 
       }
 
+      // Save logged in user
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.user)
+      );
+
       alert(response.data.message);
 
-      console.log(response.data);
+      // Redirect to Home Page
+      navigate("/");
 
     } catch (error) {
 
