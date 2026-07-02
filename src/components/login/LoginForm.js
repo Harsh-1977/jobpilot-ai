@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../styles/LoginForm.css";
+import API from "../../api/authApi";
 
 function LoginForm() {
 
@@ -13,7 +14,6 @@ function LoginForm() {
     remember: false
   });
 
-  // Load saved email when page opens
   useEffect(() => {
 
     const savedEmail = localStorage.getItem("rememberEmail");
@@ -39,31 +39,42 @@ function LoginForm() {
 
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
 
     e.preventDefault();
 
-    // Remember Me Logic
-    if (formData.remember) {
+    try {
 
-      localStorage.setItem(
-        "rememberEmail",
-        formData.email
+      const response = await API.post("/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+
+      // Remember Me
+      if (formData.remember) {
+
+        localStorage.setItem(
+          "rememberEmail",
+          formData.email
+        );
+
+      } else {
+
+        localStorage.removeItem("rememberEmail");
+
+      }
+
+      alert(response.data.message);
+
+      console.log(response.data);
+
+    } catch (error) {
+
+      alert(
+        error.response?.data?.message || "Login Failed"
       );
 
-    } else {
-
-      localStorage.removeItem("rememberEmail");
-
     }
-
-    console.log("Login Data :", formData);
-
-    alert("Login Successful (Frontend Only)");
-
-    // Later:
-    // Axios POST API
-    // Navigate("/dashboard")
 
   };
 

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../styles/RegisterForm.css";
+import API from "../../api/authApi";
 
 function RegisterForm() {
+
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,24 +31,20 @@ function RegisterForm() {
 
   };
 
-  const handleSubmit = (e) => {
-
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(formData.password !== formData.confirmPassword){
-      alert("Passwords do not match!");
-      return;
+    try {
+      const response = await API.post("/register", formData);
+
+      alert(response.data.message);
+
+      // Redirect to Login Page
+      navigate("/login");
+
+    } catch (error) {
+      alert(error.response?.data?.message || "Registration Failed");
     }
-
-    if(!formData.terms){
-      alert("Please accept Terms & Conditions.");
-      return;
-    }
-
-    console.log(formData);
-
-    alert("Registration Successful!");
-
   };
 
   return (
