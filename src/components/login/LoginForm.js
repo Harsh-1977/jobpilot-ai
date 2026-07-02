@@ -72,7 +72,7 @@ function LoginForm() {
       alert(response.data.message);
 
       // Redirect to Home Page
-      navigate("/");
+      navigate("/Dashboard");
 
     } catch (error) {
 
